@@ -10,11 +10,15 @@ angular.module('main', [
   // ROUTING with ui.router
   $urlRouterProvider.otherwise('/main/list');
   $stateProvider
+.state('index', {
+    url: '/',
+    templateUrl: 'main/templates/home.html'
+  })
     // this state is placed in the <ion-nav-view> in the index.html
     .state('main', {
       url: '/main',
       abstract: true,
-      templateUrl: 'main/templates/menu.html',
+      templateUrl: 'common/views/side-menu.html',
       controller: 'MenuCtrl as menu'
     })
       .state('main.list', {
@@ -43,5 +47,5 @@ angular.module('main', [
             controller: 'DebugCtrl as ctrl'
           }
         }
-      });
+      })
 });
